@@ -1,8 +1,8 @@
-sm-control.ga
+smcontrol.ga
 18.229.102.228
 
-sm-control.ga:8083 vesta
-sm-control.ga:18083 emqx
+smcontrol.ga:8083 vesta
+smcontrol.ga:18083 emqx
 
 #registrar un dominio gratuito
 https://my.freenom.com/domains.php
@@ -42,15 +42,15 @@ sudo apt update
 
 #Editar con el nombre del dominio de freenom
 #Ejecutar instalación sin servidor de correos
-bash vst-install.sh --nginx yes --apache yes --phpfpm no --named yes --remi yes --vsftpd yes --proftpd no --iptables yes --fail2ban yes --quota no --exim no --dovecot no --spamassassin no --clamav no --softaculous no --mysql yes --postgresql no --hostname sm-control.ga --email anllelo13.plaza@gmail.com --password 121212 -f
+bash vst-install.sh --nginx yes --apache yes --phpfpm no --named yes --remi yes --vsftpd yes --proftpd no --iptables yes --fail2ban yes --quota no --exim no --dovecot no --spamassassin no --clamav no --softaculous no --mysql yes --postgresql no --hostname smcontrol.ga --email anllelo13.plaza@gmail.com --password 121212 -f
 
 #vinculamos dominio con vps ip estatica
      ttl 3600  A ip_estatica
 www  ttl 3600  cname nombre_del_dominio
 
 #dnscheker
-https://dnschecker.org/#CNAME/www.sm-control.ga
-https://dnschecker.org/#A/sm-control.ga
+https://dnschecker.org/#CNAME/www.smcontrol.ga
+https://dnschecker.org/#A/smcontrol.ga
 
 #abrimos VESTAPANEL EN EL NAVEGADOR
 #WEB>EDITAR
@@ -77,8 +77,8 @@ cd ..
 *******
 3 para darle ssl al panel
 *******
-ln -s /home/admin/conf/web/ssl.sm-control.ga.crt /usr/local/vesta/ssl/certificate.crt
-ln -s /home/admin/conf/web/ssl.sm-control.ga.key /usr/local/vesta/ssl/certificate.key
+ln -s /home/admin/conf/web/ssl.smcontrol.ga.crt /usr/local/vesta/ssl/certificate.crt
+ln -s /home/admin/conf/web/ssl.smcontrol.ga.key /usr/local/vesta/ssl/certificate.key
 service vesta restart
 exit
 
@@ -95,17 +95,20 @@ sudo su
 cd ..
 cd ..
 wget https://www.emqx.com/en/downloads/broker/3.0.1/emqx-ubuntu16.04-v3.0.1.zip
-unzip emqx-ubuntu16.04-v3.0.1.zip
+unzip emqx-ubuntu18.04-v3.0.1.zip
 cd emqx
 ./bin/emqx start
 
 cd emqx/etc
 ##descargar de github(pendiente)
+mv emqx.conf emqx.conf-copi
+
 nano emqx.conf
 #editamos puertos ws  8083 - 8093
 #editamos puertos wss 8084 - 8094
 cd plugins
 ##descargar de github(pendiente)
+mv emqx_management.conf emqx_management.conf-copi
 nano emqx_management.conf
 #editar puerto 8080 - 8090
 cd ..
@@ -121,8 +124,8 @@ cd ..
 rm /emqx/etc/certs/cert.pem
 rm /emqx/etc/certs/key.pem
 
-ln -s /home/admin/conf/web/ssl.sm-control.ga.crt /emqx/etc/certs/cert.pem
-ln -s /home/admin/conf/web/ssl.sm-control.ga.key /emqx/etc/certs/key.pem
+ln -s /home/admin/conf/web/ssl.smcontrol.ga.crt /emqx/etc/certs/cert.pem
+ln -s /home/admin/conf/web/ssl.smcontrol.ga.key /emqx/etc/certs/key.pem
 #notaaaaaaaaa dejar 10 min o mas para que se validen los certificados
 
 
@@ -165,7 +168,7 @@ nvm install v14.0.0
 
 #instalar servidor
 sudo su
-cd /home/admin/web/sm-control.ga/public_html/admin/node
+cd /home/admin/web/smcontrol.ga/public_html/admin/node
 node index2.js
 pm2 start index2.js
 pm2 monit
