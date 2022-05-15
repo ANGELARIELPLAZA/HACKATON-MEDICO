@@ -43,7 +43,7 @@ $devices = $result->fetch_all(MYSQLI_ASSOC);
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>IoT Masterclass</title>
+  <title>SM-CONTROL</title>
   <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

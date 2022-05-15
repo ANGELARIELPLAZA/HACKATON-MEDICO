@@ -19,8 +19,9 @@ VESTA 8083
 8080 8083 8084 8090
 8091 8093 8094 8883
 11883 12000-12100 18083  44897
+
 #creamos ip elastica
-18.230.9.111
+18.229.102.228
 
 #iniciamos sesion en vps por terminal
 sudo apt update
@@ -79,8 +80,8 @@ cd ..
 *******
 ln -s /home/admin/conf/web/ssl.smcontrol.ga.crt /usr/local/vesta/ssl/certificate.crt
 ln -s /home/admin/conf/web/ssl.smcontrol.ga.key /usr/local/vesta/ssl/certificate.key
-service vesta restart
-exit
+#service vesta restart
+#exit
 
 ****
  4
